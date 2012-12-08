@@ -13,7 +13,7 @@ class ImageTest extends PHPUnit_Framework_TestCase
     {
         parent::setUp();
 
-        $this->image = new Image('asd');
+        $this->image = new Image('dHJvbG9sb28=');
     }
 
     /**
@@ -29,6 +29,25 @@ class ImageTest extends PHPUnit_Framework_TestCase
      */
     public function hasEncodedValue()
     {
-        $this->assertEquals('asd', $this->image->getEncoded());
+        $this->assertEquals('dHJvbG9sb28=', $this->image->getEncoded());
+    }
+
+    /**
+     * @test
+     * @dataProvider provideInvalidFormats
+     * @expectedException InvalidArgumentException
+     */
+    public function throwsIfGivenValueHasInvalidFormat($format)
+    {
+        new Image($format);
+    }
+
+    public function provideInvalidFormats()
+    {
+        return [
+            [null],
+            ['a'],
+            ['öööö'],
+        ];
     }
 }
