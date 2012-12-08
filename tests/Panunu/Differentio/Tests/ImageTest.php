@@ -34,6 +34,14 @@ class ImageTest extends PHPUnit_Framework_TestCase
 
     /**
      * @test
+     */
+    public function hasDecodedValue()
+    {
+        $this->assertEquals('trololoo', $this->image->getDecoded());
+    }
+
+    /**
+     * @test
      * @dataProvider invalidFormatProvider
      * @expectedException InvalidArgumentException
      */

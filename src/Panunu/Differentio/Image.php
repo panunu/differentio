@@ -7,13 +7,16 @@ use InvalidArgumentException;
 class Image
 {
     private $encoded;
+    private $decoded;
 
     /**
      * @param string $encoded image as Base64
      */
     public function __construct($encoded)
     {
-        if (!base64_decode($encoded, true)) {
+        $this->decoded = base64_decode($encoded, true);
+
+        if (!$this->decoded) {
             throw new InvalidArgumentException('Invalid format');
         }
 
@@ -26,5 +29,13 @@ class Image
     public function getEncoded()
     {
         return $this->encoded;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDecoded()
+    {
+        return $this->decoded;
     }
 }
