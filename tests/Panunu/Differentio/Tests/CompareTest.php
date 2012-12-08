@@ -3,11 +3,13 @@
 namespace Panunu\Differentio\Tests;
 
 use PHPUnit_Framework_TestCase;
+use Panunu\Differentio\Compare;
 use Panunu\Differentio\Comparable;
 use Panunu\Differentio\Image;
 
-class ComparableTest extends PHPUnit_Framework_TestCase
+class CompareTest extends PHPUnit_Framework_TestCase
 {
+    private $compare;
     private $comparable;
 
     public function setUp()
@@ -18,6 +20,8 @@ class ComparableTest extends PHPUnit_Framework_TestCase
             new Image('dHJvbG9sb28='),
             new Image('dHJvbG9sb28=')
         );
+
+        $this->compare = new Compare($this->comparable);
     }
 
     /**
@@ -25,16 +29,14 @@ class ComparableTest extends PHPUnit_Framework_TestCase
      */
     public function smoke()
     {
-        $this->assertInstanceOf('Panunu\Differentio\Comparable', $this->comparable);
+        $this->assertInstanceOf('Panunu\Differentio\Compare', $this->compare);
     }
 
     /**
      * @test
      */
-    public function hasImages()
+    public function hasComparable()
     {
-        $this->assertInstanceOf('Panunu\Differentio\Image', $this->comparable->getA());
-        $this->assertInstanceOf('Panunu\Differentio\Image', $this->comparable->getB());
+        $this->assertInstanceOf('Panunu\Differentio\Comparable', $this->compare->getComparable());
     }
-
 }
