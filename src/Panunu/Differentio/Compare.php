@@ -19,6 +19,8 @@ class Compare
         if ($this->comparable->getA()->getEncoded() === $this->comparable->getB()->getEncoded()) {
             return 100;
         }
+
+
     }
 
     /**
