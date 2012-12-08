@@ -39,4 +39,12 @@ class CompareTest extends PHPUnit_Framework_TestCase
     {
         $this->assertInstanceOf('Panunu\Differentio\Comparable', $this->compare->getComparable());
     }
+
+    /**
+     * @test
+     */
+    public function percentReturns100IfImagesEncodingStringsMatch()
+    {
+        $this->assertEquals(100, $this->compare->percent());
+    }
 }

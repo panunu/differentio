@@ -12,6 +12,16 @@ class Compare
     }
 
     /**
+     * @return int
+     */
+    public function percent()
+    {
+        if ($this->comparable->getA()->getEncoded() === $this->comparable->getB()->getEncoded()) {
+            return 100;
+        }
+    }
+
+    /**
      * @return Comparable
      */
     public function getComparable()
