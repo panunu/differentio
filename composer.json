@@ -1,2 +1,5 @@
 {
+    "autoload": {
+        "psr-0": { "Panunu": "src/" }
+    }
 }
