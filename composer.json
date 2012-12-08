@@ -1,5 +1,8 @@
 {
     "autoload": {
-        "psr-0": { "Panunu": "src/" }
+        "psr-0": {
+            "Panunu\\Differentione": "src/",
+            "Panunu\\Differentione\\Tests": "tests/"
+        }
     }
 }
