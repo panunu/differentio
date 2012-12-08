@@ -2,7 +2,7 @@
 
 namespace Panunu\Differentio;
 
-class Compare
+class Comparable
 {
     private $a, $b;
 
