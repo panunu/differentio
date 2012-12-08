@@ -34,7 +34,7 @@ class ImageTest extends PHPUnit_Framework_TestCase
 
     /**
      * @test
-     * @dataProvider provideInvalidFormats
+     * @dataProvider invalidFormatProvider
      * @expectedException InvalidArgumentException
      */
     public function throwsIfGivenValueHasInvalidFormat($format)
@@ -42,10 +42,11 @@ class ImageTest extends PHPUnit_Framework_TestCase
         new Image($format);
     }
 
-    public function provideInvalidFormats()
+    public function invalidFormatProvider()
     {
         return [
             [null],
+            [false],
             ['a'],
             ['öööö'],
         ];
