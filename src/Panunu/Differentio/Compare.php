@@ -21,7 +21,7 @@ class Compare
      */
     public function percent()
     {
-        if ($this->comparable->getA()->getEncoded() === $this->comparable->getB()->getEncoded()) {
+        if ($this->comparablesHaveMatchingHashes()) {
             return 100;
         }
 
@@ -36,5 +36,13 @@ class Compare
     public function getComparable()
     {
         return $this->comparable;
+    }
+
+    /**
+     * @return bool
+     */
+    private function comparablesHaveMatchingHashes()
+    {
+        return $this->comparable->getA()->getEncoded() === $this->comparable->getB()->getEncoded();
     }
 }
