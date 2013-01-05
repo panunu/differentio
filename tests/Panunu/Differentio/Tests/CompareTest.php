@@ -61,9 +61,8 @@ class CompareTest extends PHPUnit_Framework_TestCase
      */
     public function percentReturns50IfHalfOfPixelsAreDifferent()
     {
-        $this->assertEquals(50, $this->createCompare('black', 'blackwhite')->percent());
+        $this->assertEquals(50, $this->createCompare('white', 'blackwhite')->percent());
     }
-
 
     /**
      * @param $pixelColorA
