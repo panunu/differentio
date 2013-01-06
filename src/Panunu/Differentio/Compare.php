@@ -52,6 +52,7 @@ class Compare
     {
         $similarity = 0;
 
+        // TODO: Refactor.
         foreach($i = $a->getPixelIterator() as $row => $pixels) {
             foreach($pixels as $column => $pixel) {
                 if ($b->getImagePixelColor($row, $column)->getColorAsString() === $pixel->getColorAsString()) {
